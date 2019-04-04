@@ -9,6 +9,8 @@ services:
     - "9042:9042"
     - "8983:8983"
     - "8182:8182"
+    depends_on:
+       - opscenter
     environment:
       DS_LICENSE: accept
     cap_add:
@@ -35,8 +37,6 @@ services:
     image: datastax/dse-opscenter:6.7.0
     ports:
       - 8888:8888
-    depends_on:
-       - dse  
     environment:
       - DS_LICENSE=accept
   
